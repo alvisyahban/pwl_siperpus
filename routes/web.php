@@ -18,16 +18,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::group(['widdleware'=>['role:mahasiswa']], function) {
+Route::group(['widdleware'=>['role:mahasiswa']], function() {
     Route::get('/view/books',[BookController::class,'index']);
     Route::get('/books/{id}',[BookController::class,'search']);
 
-}
-Route::group(['widdleware'=>['role:pustakawan']], function) {
+});
+Route::group(['widdleware'=>['role:pustakawan']], function()   {
     Route::get('/manage/books',[BookController::class,'index']);
     Route::get('/books/{id}',[BookController::class,'search']);
 
-}
+});
 
 
 
